@@ -1,12 +1,11 @@
 name: Meme Scraper
-# schedule refresh
+# schedule refresh 2
 
 on:
   workflow_dispatch:
 
   schedule:
-    - cron: "2-59/5 * * * *"
-      timezone: "Europe/Warsaw"
+    - cron: "*/5 * * * *"
 
 permissions:
   contents: write
