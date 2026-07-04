@@ -1,17 +1,19 @@
+import csv
 import json
 import logging
 import os
 import re
+import sys
 import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import urljoin
 from urllib.robotparser import RobotFileParser
+from zoneinfo import ZoneInfo
 
 import requests
 from bs4 import BeautifulSoup
-from openpyxl import Workbook, load_workbook
 from requests import Session
 from requests.exceptions import RequestException, Timeout
 
@@ -20,59 +22,46 @@ from requests.exceptions import RequestException, Timeout
 # KONFIGURACJA
 # ============================================================
 
-TARGET_URL = "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today"
-
-# Zostawiam Playwright jako domyślny tryb, bo realnie odświeża stronę.
-# Możesz zmienić na "requests", jeśli zwykły HTML wystarcza.
-SCRAPER_MODE = "playwright"
-
-OUTPUT_XLSX = "meme_stocks_snapshots.xlsx"
-EXCEL_SHEET_NAME = "Snapshots"
-
-LAST_SUCCESS_JSON = "last_successful_snapshot.json"
-
-# Ranking aktualizuje się co 5 minut.
-REFRESH_INTERVAL_SECONDS = 300
-MIN_REFRESH_INTERVAL_SECONDS = 60
-
-# Pobieranie będzie wyrównane do minut podzielnych przez 5:
-# np. 23:10, 23:15, 23:20.
-ALIGN_TO_5_MIN_BOUNDARY = True
-
-# Mały bufor, żeby pobrać dane np. o 23:10:10, a nie idealnie o 23:10:00.
-FETCH_AFTER_BOUNDARY_DELAY_SECONDS = 10
-
-REQUEST_TIMEOUT_SECONDS = 20
-
-USER_AGENT = (
-    "EducationalMemeStockScraper/1.0 "
-    "(low-frequency research project; contact: your-email@example.com)"
+TARGET_URL = os.getenv(
+    "TARGET_URL",
+    "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
 )
 
-CHECK_ROBOTS_TXT = True
-STOP_IF_ROBOTS_UNAVAILABLE = False
+DATA_DIR = os.getenv("DATA_DIR", "data")
+LOCAL_TIMEZONE = os.getenv("LOCAL_TIMEZONE", "Europe/Warsaw")
+REQUEST_TIMEOUT_SECONDS = int(os.getenv("REQUEST_TIMEOUT_SECONDS", "20"))
 
-STOP_ON_403 = True
-STOP_ON_429 = False
+USER_AGENT = os.getenv(
+    "USER_AGENT",
+    "EducationalMemeStockCollector/1.0 "
+    "(public GitHub Actions research project; low frequency; no bypassing)",
+)
 
-DEFAULT_429_SLEEP_SECONDS = 10 * 60
-MAX_CONSECUTIVE_ERRORS = 5
+CHECK_ROBOTS_TXT = os.getenv("CHECK_ROBOTS_TXT", "true").lower() == "true"
+STOP_IF_ROBOTS_UNAVAILABLE = os.getenv("STOP_IF_ROBOTS_UNAVAILABLE", "false").lower() == "true"
 
-FORCE_PAGE_REFRESH = True
+# robots.txt cache'ujemy, żeby nie pobierać go przy każdym uruchomieniu co 5 minut.
+ROBOTS_CACHE_TTL_SECONDS = int(os.getenv("ROBOTS_CACHE_TTL_SECONDS", str(24 * 60 * 60)))
 
-# Domyślnie False, bo cache-buster typu ?ts=... może mocniej obciążać serwer/CDN.
-USE_CACHE_BUSTER_QUERY_PARAM = False
+# Opcjonalne okno zbierania danych w czasie lokalnym.
+# Przykład:
+# COLLECTION_START_LOCAL="2026-07-05 00:00:00"
+# COLLECTION_END_LOCAL="2026-07-19 00:00:00"
+COLLECTION_START_LOCAL = os.getenv("COLLECTION_START_LOCAL", "").strip()
+COLLECTION_END_LOCAL = os.getenv("COLLECTION_END_LOCAL", "").strip()
 
-# Jeśli snapshot jest identyczny jak poprzedni, nadal dopisuje go do Excela.
-# Jeśli chcesz zapisywać tylko zmiany, ustaw False.
-APPEND_UNCHANGED_SNAPSHOTS = True
+LAST_SUCCESS_JSON = os.path.join(DATA_DIR, "last_successful_snapshot.json")
+ROBOTS_CACHE_JSON = os.path.join(DATA_DIR, "robots_cache.json")
 
-EXCEL_HEADERS = [
+CSV_HEADERS = [
     "data_pobrania",
     "kod",
     "nazwa",
     "upvotes",
     "mentions",
+    "rank",
+    "mention_change",
+    "source_url",
 ]
 
 
@@ -85,7 +74,7 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(message)s",
 )
 
-logger = logging.getLogger("meme-stock-scraper")
+logger = logging.getLogger("meme-stock-collector")
 
 
 # ============================================================
@@ -96,22 +85,20 @@ class ScraperError(Exception):
     pass
 
 
-class FatalScraperError(ScraperError):
-    pass
+class GracefulSkip(Exception):
+    """Kończymy bez błędu, np. poza oknem dat albo przy 429."""
 
 
-class BlockedScraperError(FatalScraperError):
-    pass
-
-
-class NotFoundScraperError(FatalScraperError):
+class BlockedScraperError(ScraperError):
     pass
 
 
 class RateLimitedScraperError(ScraperError):
-    def __init__(self, message: str, retry_after_seconds: Optional[int] = None):
-        super().__init__(message)
-        self.retry_after_seconds = retry_after_seconds
+    pass
+
+
+class FatalScraperError(ScraperError):
+    pass
 
 
 class TransientScraperError(ScraperError):
@@ -128,6 +115,7 @@ class ParseScraperError(ScraperError):
 
 @dataclass
 class MemeStockRow:
+    fetched_at_local: str
     fetched_at_utc: str
     rank: Optional[int]
     ticker: Optional[str]
@@ -138,8 +126,21 @@ class MemeStockRow:
     source_url: str
     raw_text: str
 
+    def to_csv_dict(self) -> Dict[str, Any]:
+        return {
+            "data_pobrania": self.fetched_at_local,
+            "kod": self.ticker,
+            "nazwa": self.company_name,
+            "upvotes": self.upvotes,
+            "mentions": self.mentions,
+            "rank": self.rank,
+            "mention_change": self.mention_change,
+            "source_url": self.source_url,
+        }
+
     def to_json_dict(self) -> Dict[str, Any]:
         return {
+            "fetched_at_local": self.fetched_at_local,
             "fetched_at_utc": self.fetched_at_utc,
             "rank": self.rank,
             "ticker": self.ticker,
@@ -153,59 +154,83 @@ class MemeStockRow:
 
 
 # ============================================================
-# FUNKCJE POMOCNICZE
+# CZAS / PLIKI
 # ============================================================
 
-def utc_now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+def local_tz() -> ZoneInfo:
+    return ZoneInfo(LOCAL_TIMEZONE)
 
 
-def clean_text(text: str) -> str:
-    return re.sub(r"\s+", " ", text or "").strip()
+def get_now() -> Tuple[datetime, datetime]:
+    now_utc = datetime.now(timezone.utc)
+    now_local = now_utc.astimezone(local_tz())
+    return now_utc, now_local
 
 
-def parse_int(value: Optional[str]) -> Optional[int]:
-    if value is None:
-        return None
+def iso(dt: datetime) -> str:
+    return dt.isoformat(timespec="seconds")
 
+
+def daily_csv_path(now_local: datetime) -> str:
+    return os.path.join(DATA_DIR, f"meme_stocks_{now_local:%Y-%m-%d}.csv")
+
+
+def parse_local_datetime(value: str) -> Optional[datetime]:
     value = value.strip()
 
     if not value:
         return None
 
-    value = value.replace(",", "")
-    value = value.replace("$", "")
-    value = value.replace("%", "")
-    value = value.replace("−", "-")
-    value = re.sub(r"\s+", "", value)
+    dt = datetime.fromisoformat(value.replace("T", " "))
+
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=local_tz())
+
+    return dt.astimezone(local_tz())
+
+
+def ensure_collection_window(now_local: datetime) -> None:
+    start = parse_local_datetime(COLLECTION_START_LOCAL) if COLLECTION_START_LOCAL else None
+    end = parse_local_datetime(COLLECTION_END_LOCAL) if COLLECTION_END_LOCAL else None
+
+    if start and now_local < start:
+        raise GracefulSkip(
+            f"Poza oknem zbierania danych. Start: {iso(start)}, teraz: {iso(now_local)}"
+        )
+
+    if end and now_local > end:
+        raise GracefulSkip(
+            f"Poza oknem zbierania danych. Koniec: {iso(end)}, teraz: {iso(now_local)}"
+        )
+
+
+def read_json(path: str) -> Optional[Dict[str, Any]]:
+    if not os.path.exists(path):
+        return None
 
     try:
-        return int(value)
-    except ValueError:
+        with open(path, "r", encoding="utf-8") as file:
+            return json.load(file)
+    except (OSError, json.JSONDecodeError):
         return None
 
 
-def parse_retry_after_seconds(value: Optional[str]) -> Optional[int]:
-    if not value:
-        return None
+def atomic_write_json(payload: Dict[str, Any], path: str) -> None:
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
 
-    value = value.strip()
+    temp_path = f"{path}.tmp"
 
-    if value.isdigit():
-        return int(value)
+    with open(temp_path, "w", encoding="utf-8") as file:
+        json.dump(payload, file, ensure_ascii=False, indent=2)
 
-    return None
-
-
-def build_fetch_url(base_url: str) -> str:
-    if not USE_CACHE_BUSTER_QUERY_PARAM:
-        return base_url
-
-    separator = "&" if "?" in base_url else "?"
-    return f"{base_url}{separator}_scrape_ts={int(time.time())}"
+    os.replace(temp_path, path)
 
 
-def create_http_session() -> Session:
+# ============================================================
+# HTTP / ROBOTS.TXT
+# ============================================================
+
+def create_session() -> Session:
     session = requests.Session()
 
     session.headers.update({
@@ -219,130 +244,76 @@ def create_http_session() -> Session:
     return session
 
 
-def compute_snapshot_fingerprint(rows: List[MemeStockRow]) -> str:
-    compact = [
-        {
-            "rank": row.rank,
-            "ticker": row.ticker,
-            "company_name": row.company_name,
-            "upvotes": row.upvotes,
-            "mentions": row.mentions,
-            "mention_change": row.mention_change,
-        }
-        for row in rows
-    ]
+def check_robots_txt_cached(session: Session) -> bool:
+    os.makedirs(DATA_DIR, exist_ok=True)
 
-    return json.dumps(compact, ensure_ascii=False, sort_keys=True)
+    now_ts = int(time.time())
+    cache = read_json(ROBOTS_CACHE_JSON)
 
+    if cache and cache.get("target_url") == TARGET_URL:
+        age = now_ts - int(cache.get("checked_at_unix", 0))
 
-def seconds_until_next_aligned_fetch() -> int:
-    """
-    Liczy czas do kolejnego pobrania wyrównanego do 5-minutowej granicy.
+        if age < ROBOTS_CACHE_TTL_SECONDS:
+            allowed = bool(cache.get("allowed", False))
+            logger.info("Używam cache robots.txt: allowed=%s, wiek=%ss", allowed, age)
+            return allowed
 
-    Przykłady:
-    - jeśli teraz jest 23:11:20, następne pobranie będzie około 23:15:10
-    - jeśli teraz jest 23:15:12, następne pobranie będzie około 23:20:10
-
-    Działa na czasie systemowym komputera.
-    """
-    if not ALIGN_TO_5_MIN_BOUNDARY:
-        return max(REFRESH_INTERVAL_SECONDS, MIN_REFRESH_INTERVAL_SECONDS)
-
-    now = time.time()
-
-    interval = REFRESH_INTERVAL_SECONDS
-
-    next_boundary = (int(now // interval) + 1) * interval
-    next_fetch_time = next_boundary + FETCH_AFTER_BOUNDARY_DELAY_SECONDS
-
-    sleep_seconds = int(round(next_fetch_time - now))
-
-    return max(sleep_seconds, MIN_REFRESH_INTERVAL_SECONDS)
-
-
-def sleep_until_next_scheduled_fetch() -> None:
-    sleep_seconds = seconds_until_next_aligned_fetch()
-
-    next_fetch_timestamp = time.time() + sleep_seconds
-    next_fetch_local = datetime.fromtimestamp(next_fetch_timestamp).strftime("%Y-%m-%d %H:%M:%S")
-
-    logger.info(
-        "Czekam %s sekund. Następne pobranie około: %s",
-        sleep_seconds,
-        next_fetch_local,
-    )
-
-    time.sleep(sleep_seconds)
-
-
-def check_robots_txt(session: Session, target_url: str) -> bool:
-    robots_url = urljoin(target_url, "/robots.txt")
-
+    robots_url = urljoin(TARGET_URL, "/robots.txt")
     logger.info("Sprawdzam robots.txt: %s", robots_url)
 
     try:
-        response = session.get(
-            robots_url,
-            timeout=REQUEST_TIMEOUT_SECONDS,
-        )
+        response = session.get(robots_url, timeout=REQUEST_TIMEOUT_SECONDS)
     except RequestException as exc:
-        message = f"Nie udało się pobrać robots.txt: {exc}"
-
         if STOP_IF_ROBOTS_UNAVAILABLE:
-            logger.error("%s. Przerywam.", message)
+            logger.error("Nie udało się pobrać robots.txt: %s. Przerywam.", exc)
             return False
 
-        logger.warning("%s. Kontynuuję ostrożnie.", message)
+        logger.warning("Nie udało się pobrać robots.txt: %s. Kontynuuję ostrożnie.", exc)
         return True
 
     if response.status_code == 404:
-        message = "robots.txt nie istnieje albo zwrócił 404."
-
         if STOP_IF_ROBOTS_UNAVAILABLE:
-            logger.error("%s Przerywam.", message)
+            logger.error("robots.txt zwrócił 404. Przerywam.")
             return False
 
-        logger.warning("%s Kontynuuję ostrożnie.", message)
+        logger.warning("robots.txt zwrócił 404. Kontynuuję ostrożnie.")
         return True
 
     if response.status_code != 200:
-        message = f"robots.txt zwrócił HTTP {response.status_code}."
-
         if STOP_IF_ROBOTS_UNAVAILABLE:
-            logger.error("%s Przerywam.", message)
+            logger.error("robots.txt zwrócił HTTP %s. Przerywam.", response.status_code)
             return False
 
-        logger.warning("%s Kontynuuję ostrożnie.", message)
+        logger.warning("robots.txt zwrócił HTTP %s. Kontynuuję ostrożnie.", response.status_code)
         return True
 
     parser = RobotFileParser()
     parser.set_url(robots_url)
     parser.parse(response.text.splitlines())
 
-    allowed = parser.can_fetch(USER_AGENT, target_url)
+    allowed = parser.can_fetch(USER_AGENT, TARGET_URL)
 
-    if not allowed:
-        logger.error(
-            "robots.txt nie pozwala temu User-Agentowi pobierać %s. Przerywam.",
-            target_url,
-        )
-        return False
+    atomic_write_json({
+        "target_url": TARGET_URL,
+        "robots_url": robots_url,
+        "checked_at_unix": now_ts,
+        "checked_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "allowed": allowed,
+    }, ROBOTS_CACHE_JSON)
 
-    logger.info("robots.txt pozwala na pobranie strony.")
-    return True
+    if allowed:
+        logger.info("robots.txt pozwala na pobranie strony.")
+    else:
+        logger.error("robots.txt nie pozwala pobierać %s.", TARGET_URL)
+
+    return allowed
 
 
-# ============================================================
-# POBIERANIE HTML: REQUESTS
-# ============================================================
-
-def fetch_html_requests(session: Session, url: str) -> str:
-    fetch_url = build_fetch_url(url)
-
-    logger.info("Pobieram stronę przez requests: %s", fetch_url)
+def fetch_html(session: Session) -> str:
+    logger.info("Pobieram stronę: %s", TARGET_URL)
 
     try:
-        response = session.get(fetch_url, timeout=REQUEST_TIMEOUT_SECONDS)
+        response = session.get(TARGET_URL, timeout=REQUEST_TIMEOUT_SECONDS)
     except Timeout as exc:
         raise TransientScraperError(f"Timeout połączenia: {exc}") from exc
     except RequestException as exc:
@@ -355,257 +326,52 @@ def fetch_html_requests(session: Session, url: str) -> str:
 
     if status == 403:
         raise BlockedScraperError(
-            "HTTP 403: strona odmówiła dostępu. "
-            "Nie obchodzę blokady. Rozważ oficjalne źródło danych albo kontakt z właścicielem strony."
+            "HTTP 403: strona odmówiła dostępu. Nie ponawiam agresywnie."
         )
 
     if status == 404:
-        raise NotFoundScraperError(
-            "HTTP 404: strona nie została znaleziona. Sprawdź URL."
-        )
+        raise FatalScraperError("HTTP 404: strona nie została znaleziona.")
 
     if status == 429:
-        retry_after = parse_retry_after_seconds(response.headers.get("Retry-After"))
-
         raise RateLimitedScraperError(
-            "HTTP 429: za dużo zapytań. Skrypt wydłuży przerwę albo zakończy działanie.",
-            retry_after_seconds=retry_after,
+            "HTTP 429: limit zapytań. Nie ponawiam agresywnie."
         )
 
     if 500 <= status <= 599:
         raise TransientScraperError(f"HTTP {status}: błąd po stronie serwera.")
 
     if 400 <= status <= 499:
-        raise FatalScraperError(
-            f"HTTP {status}: błąd klienta. Nie ponawiam agresywnie."
-        )
+        raise FatalScraperError(f"HTTP {status}: błąd klienta.")
 
     raise TransientScraperError(f"Nieoczekiwany HTTP status: {status}")
 
 
 # ============================================================
-# POBIERANIE HTML: PLAYWRIGHT
+# PARSOWANIE
 # ============================================================
 
-def fetch_html_playwright(page: Any, url: str, already_loaded: bool = False) -> str:
-    fetch_url = build_fetch_url(url)
+def clean_text(text: str) -> str:
+    return re.sub(r"\s+", " ", text or "").strip()
 
-    if already_loaded and FORCE_PAGE_REFRESH and not USE_CACHE_BUSTER_QUERY_PARAM:
-        logger.info("Odświeżam stronę przez Playwright: page.reload()")
-    else:
-        logger.info("Wchodzę na stronę przez Playwright: %s", fetch_url)
+
+def parse_int(value: Optional[str]) -> Optional[int]:
+    if value is None:
+        return None
+
+    value = value.strip()
+    value = value.replace(",", "")
+    value = value.replace("$", "")
+    value = value.replace("%", "")
+    value = value.replace("−", "-")
+    value = re.sub(r"\s+", "", value)
+
+    if not value:
+        return None
 
     try:
-        if already_loaded and FORCE_PAGE_REFRESH and not USE_CACHE_BUSTER_QUERY_PARAM:
-            response = page.reload(
-                wait_until="domcontentloaded",
-                timeout=REQUEST_TIMEOUT_SECONDS * 1000,
-            )
-        else:
-            response = page.goto(
-                fetch_url,
-                wait_until="domcontentloaded",
-                timeout=REQUEST_TIMEOUT_SECONDS * 1000,
-            )
-
-        if response is None:
-            raise TransientScraperError("Playwright nie zwrócił odpowiedzi HTTP.")
-
-        status = response.status
-
-        if status == 403:
-            raise BlockedScraperError(
-                "HTTP 403: strona odmówiła dostępu. "
-                "Nie obchodzę blokady. Rozważ oficjalne źródło danych."
-            )
-
-        if status == 404:
-            raise NotFoundScraperError(
-                "HTTP 404: strona nie została znaleziona. Sprawdź URL."
-            )
-
-        if status == 429:
-            retry_after = parse_retry_after_seconds(response.headers.get("retry-after"))
-
-            raise RateLimitedScraperError(
-                "HTTP 429: za dużo zapytań.",
-                retry_after_seconds=retry_after,
-            )
-
-        if 500 <= status <= 599:
-            raise TransientScraperError(f"HTTP {status}: błąd po stronie serwera.")
-
-        if 400 <= status <= 499:
-            raise FatalScraperError(f"HTTP {status}: błąd klienta.")
-
-        try:
-            page.wait_for_load_state("networkidle", timeout=10_000)
-        except Exception:
-            logger.warning("Nie osiągnięto networkidle, próbuję parsować aktualny HTML.")
-
-        return page.content()
-
-    except ScraperError:
-        raise
-    except Exception as exc:
-        raise TransientScraperError(f"Błąd Playwright: {exc}") from exc
-
-
-# ============================================================
-# PARSOWANIE HTML
-# ============================================================
-
-def parse_html(html: str, fetched_at_utc: str) -> List[MemeStockRow]:
-    soup = BeautifulSoup(html, "lxml")
-
-    rows = parse_table_rows(soup, fetched_at_utc)
-
-    if rows:
-        logger.info("Znaleziono %s rekordów metodą tabel HTML.", len(rows))
-        return rows
-
-    rows = parse_card_or_link_rows(soup, fetched_at_utc)
-
-    if rows:
-        logger.info("Znaleziono %s rekordów metodą kart/linków.", len(rows))
-        return rows
-
-    raise ParseScraperError(
-        "Nie znaleziono rekordów rankingu. "
-        "Możliwe, że strona zmieniła HTML albo ładuje dane JavaScriptem z osobnego endpointu."
-    )
-
-
-def parse_table_rows(soup: BeautifulSoup, fetched_at_utc: str) -> List[MemeStockRow]:
-    parsed_rows: List[MemeStockRow] = []
-
-    for table in soup.select("table"):
-        headers = [
-            clean_text(th.get_text(" ", strip=True)).lower()
-            for th in table.select("thead th")
-        ]
-
-        if not headers:
-            first_row = table.select_one("tr")
-
-            if first_row:
-                headers = [
-                    clean_text(cell.get_text(" ", strip=True)).lower()
-                    for cell in first_row.select("th,td")
-                ]
-
-        header_blob = " ".join(headers)
-
-        if not any(key in header_blob for key in ["ticker", "symbol", "mentions", "upvotes"]):
-            continue
-
-        body_rows = table.select("tbody tr") or table.select("tr")[1:]
-
-        for tr in body_rows:
-            cells = [
-                clean_text(td.get_text(" ", strip=True))
-                for td in tr.select("td")
-            ]
-
-            if len(cells) < 2:
-                continue
-
-            row_dict = map_table_cells(headers, cells)
-            raw_text = clean_text(tr.get_text(" ", strip=True))
-
-            if not row_dict.get("ticker"):
-                fallback = parse_ranked_text_row(raw_text, fetched_at_utc)
-
-                if fallback:
-                    parsed_rows.append(fallback)
-
-                continue
-
-            parsed_rows.append(
-                MemeStockRow(
-                    fetched_at_utc=fetched_at_utc,
-                    rank=row_dict.get("rank"),
-                    ticker=row_dict.get("ticker"),
-                    company_name=row_dict.get("company_name"),
-                    upvotes=row_dict.get("upvotes"),
-                    mentions=row_dict.get("mentions"),
-                    mention_change=row_dict.get("mention_change"),
-                    source_url=TARGET_URL,
-                    raw_text=raw_text,
-                )
-            )
-
-    return deduplicate_rows(parsed_rows)
-
-
-def map_table_cells(headers: List[str], cells: List[str]) -> Dict[str, Any]:
-    result: Dict[str, Any] = {
-        "rank": None,
-        "ticker": None,
-        "company_name": None,
-        "upvotes": None,
-        "mentions": None,
-        "mention_change": None,
-    }
-
-    for idx, value in enumerate(cells):
-        header = headers[idx] if idx < len(headers) else ""
-
-        if any(key in header for key in ["rank", "#", "position", "pozycja"]):
-            result["rank"] = parse_int(value)
-
-        elif any(key in header for key in ["ticker", "symbol", "kod"]):
-            result["ticker"] = value.upper() if value else None
-
-        elif any(key in header for key in ["company", "name", "spółka", "nazwa"]):
-            result["company_name"] = value or None
-
-        elif "upvote" in header:
-            result["upvotes"] = parse_int(value)
-
-        elif "mention" in header and "change" not in header:
-            result["mentions"] = parse_int(value)
-
-        elif "change" in header or "delta" in header or "trend" in header:
-            result["mention_change"] = parse_int(value)
-
-    return result
-
-
-def parse_card_or_link_rows(soup: BeautifulSoup, fetched_at_utc: str) -> List[MemeStockRow]:
-    candidates: List[str] = []
-
-    for element in soup.select("a"):
-        text = clean_text(element.get_text(" ", strip=True))
-
-        if looks_like_rank_row(text):
-            candidates.append(text)
-
-    if not candidates:
-        selectors = [
-            "[class*='stock']",
-            "[class*='rank']",
-            "[class*='ticker']",
-            "[class*='card']",
-            "[class*='item']",
-        ]
-
-        for selector in selectors:
-            for element in soup.select(selector):
-                text = clean_text(element.get_text(" ", strip=True))
-
-                if looks_like_rank_row(text):
-                    candidates.append(text)
-
-    parsed_rows: List[MemeStockRow] = []
-
-    for text in candidates:
-        row = parse_ranked_text_row(text, fetched_at_utc)
-
-        if row:
-            parsed_rows.append(row)
-
-    return deduplicate_rows(parsed_rows)
+        return int(value)
+    except ValueError:
+        return None
 
 
 def looks_like_rank_row(text: str) -> bool:
@@ -620,7 +386,32 @@ def looks_like_rank_row(text: str) -> bool:
     )
 
 
-def parse_ranked_text_row(text: str, fetched_at_utc: str) -> Optional[MemeStockRow]:
+def pop_trailing_signed_int(tokens: List[str]) -> Tuple[Optional[int], List[str]]:
+    if not tokens:
+        return None, tokens
+
+    # Format: + 575
+    if len(tokens) >= 2 and tokens[-2] in {"+", "-"}:
+        number = parse_int(tokens[-1])
+
+        if number is not None:
+            sign = 1 if tokens[-2] == "+" else -1
+            return sign * abs(number), tokens[:-2]
+
+    # Format: +575 albo -6
+    last = tokens[-1].replace("−", "-")
+
+    if re.match(r"^[+-]\d[\d,]*$", last):
+        return parse_int(last), tokens[:-1]
+
+    return None, tokens
+
+
+def parse_ranked_text_row(
+    text: str,
+    fetched_at_local: str,
+    fetched_at_utc: str,
+) -> Optional[MemeStockRow]:
     """
     Parser dla formatu podobnego do:
 
@@ -634,29 +425,29 @@ def parse_ranked_text_row(text: str, fetched_at_utc: str) -> Optional[MemeStockR
         mentions = 677
         mention_change = 575
     """
-    pattern = re.compile(
+    match = re.match(
         r"^#\s*(?P<rank>\d{1,3})\s*\.?\s+"
         r"(?P<ticker>[A-Z][A-Z0-9.\-]{0,9})\s+"
-        r"(?P<rest>.+)$"
+        r"(?P<rest>.+)$",
+        text,
     )
-
-    match = pattern.match(text)
 
     if not match:
         return None
 
     rank = parse_int(match.group("rank"))
     ticker = match.group("ticker").strip().upper()
-    rest = clean_text(match.group("rest"))
-
-    tokens = rest.split()
+    tokens = clean_text(match.group("rest")).split()
 
     if len(tokens) < 3:
+        company_name = " ".join(tokens) or None
+
         return MemeStockRow(
+            fetched_at_local=fetched_at_local,
             fetched_at_utc=fetched_at_utc,
             rank=rank,
             ticker=ticker,
-            company_name=rest or None,
+            company_name=company_name,
             upvotes=None,
             mentions=None,
             mention_change=None,
@@ -669,23 +460,24 @@ def parse_ranked_text_row(text: str, fetched_at_utc: str) -> Optional[MemeStockR
     mentions = None
     upvotes = None
 
-    if len(tokens) >= 1:
-        mentions_candidate = parse_int(tokens[-1])
+    if tokens:
+        candidate = parse_int(tokens[-1])
 
-        if mentions_candidate is not None:
-            mentions = mentions_candidate
+        if candidate is not None:
+            mentions = candidate
             tokens = tokens[:-1]
 
-    if len(tokens) >= 1:
-        upvotes_candidate = parse_int(tokens[-1])
+    if tokens:
+        candidate = parse_int(tokens[-1])
 
-        if upvotes_candidate is not None:
-            upvotes = upvotes_candidate
+        if candidate is not None:
+            upvotes = candidate
             tokens = tokens[:-1]
 
     company_name = " ".join(tokens).strip() or None
 
     return MemeStockRow(
+        fetched_at_local=fetched_at_local,
         fetched_at_utc=fetched_at_utc,
         rank=rank,
         ticker=ticker,
@@ -698,28 +490,9 @@ def parse_ranked_text_row(text: str, fetched_at_utc: str) -> Optional[MemeStockR
     )
 
 
-def pop_trailing_signed_int(tokens: List[str]) -> Tuple[Optional[int], List[str]]:
-    if not tokens:
-        return None, tokens
-
-    if len(tokens) >= 2 and tokens[-2] in {"+", "-"}:
-        number = parse_int(tokens[-1])
-
-        if number is not None:
-            sign = 1 if tokens[-2] == "+" else -1
-            return sign * abs(number), tokens[:-2]
-
-    last = tokens[-1].replace("−", "-")
-
-    if re.match(r"^[+-]\d[\d,]*$", last):
-        return parse_int(last), tokens[:-1]
-
-    return None, tokens
-
-
 def deduplicate_rows(rows: List[MemeStockRow]) -> List[MemeStockRow]:
     seen = set()
-    unique_rows: List[MemeStockRow] = []
+    result: List[MemeStockRow] = []
 
     for row in rows:
         key = (row.rank, row.ticker)
@@ -728,395 +501,153 @@ def deduplicate_rows(rows: List[MemeStockRow]) -> List[MemeStockRow]:
             continue
 
         seen.add(key)
-        unique_rows.append(row)
+        result.append(row)
 
-    unique_rows.sort(key=lambda r: r.rank if r.rank is not None else 9999)
+    result.sort(key=lambda row: row.rank if row.rank is not None else 9999)
 
-    return unique_rows
+    return result
 
 
-# ============================================================
-# ZAPIS DO EXCELA
-# ============================================================
+def parse_html(
+    html: str,
+    fetched_at_local: str,
+    fetched_at_utc: str,
+) -> List[MemeStockRow]:
+    soup = BeautifulSoup(html, "lxml")
+    candidates: List[str] = []
 
-def append_rows_to_excel(rows: List[MemeStockRow], path: str) -> None:
-    """
-    Dopisuje dane do pliku Excel.
+    # Obecnie ranking jest dostępny jako tekst linków/kart.
+    for element in soup.select("a"):
+        text = clean_text(element.get_text(" ", strip=True))
 
-    Kolumny:
-        data_pobrania | kod | nazwa | upvotes | mentions
-    """
-    if os.path.exists(path):
-        workbook = load_workbook(path)
+        if looks_like_rank_row(text):
+            candidates.append(text)
 
-        if EXCEL_SHEET_NAME in workbook.sheetnames:
-            sheet = workbook[EXCEL_SHEET_NAME]
-        else:
-            sheet = workbook.create_sheet(EXCEL_SHEET_NAME)
-            sheet.append(EXCEL_HEADERS)
+    # Fallback, gdyby linki zmieniły się na divy/karty.
+    if not candidates:
+        for selector in [
+            "[class*='stock']",
+            "[class*='rank']",
+            "[class*='ticker']",
+            "[class*='card']",
+            "[class*='item']",
+        ]:
+            for element in soup.select(selector):
+                text = clean_text(element.get_text(" ", strip=True))
 
-    else:
-        workbook = Workbook()
-        sheet = workbook.active
-        sheet.title = EXCEL_SHEET_NAME
-        sheet.append(EXCEL_HEADERS)
+                if looks_like_rank_row(text):
+                    candidates.append(text)
 
-    for row in rows:
-        sheet.append([
-            row.fetched_at_utc,
-            row.ticker,
-            row.company_name,
-            row.upvotes,
-            row.mentions,
-        ])
+    rows: List[MemeStockRow] = []
 
-    sheet.column_dimensions["A"].width = 28
-    sheet.column_dimensions["B"].width = 14
-    sheet.column_dimensions["C"].width = 40
-    sheet.column_dimensions["D"].width = 14
-    sheet.column_dimensions["E"].width = 14
+    for text in candidates:
+        row = parse_ranked_text_row(text, fetched_at_local, fetched_at_utc)
 
-    try:
-        temp_path = f"{path}.tmp.xlsx"
-        workbook.save(temp_path)
-        os.replace(temp_path, path)
+        if row:
+            rows.append(row)
 
-        logger.info("Dopisano %s rekordów do Excela: %s", len(rows), path)
+    rows = deduplicate_rows(rows)
 
-    except PermissionError:
-        logger.error(
-            "Nie udało się zapisać pliku Excel. "
-            "Sprawdź, czy plik nie jest aktualnie otwarty w Excelu: %s",
-            path,
+    if not rows:
+        raise ParseScraperError(
+            "Nie znaleziono rekordów rankingu. "
+            "Strona mogła zmienić HTML albo zacząć ładować dane JavaScriptem."
         )
 
-    finally:
-        workbook.close()
+    return rows
 
 
-def save_last_successful_snapshot(rows: List[MemeStockRow], path: str) -> None:
-    payload = {
-        "saved_at_utc": utc_now_iso(),
+# ============================================================
+# ZAPIS DO CSV / JSON
+# ============================================================
+
+def append_rows_to_daily_csv(rows: List[MemeStockRow], path: str) -> None:
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+
+    file_is_empty = not os.path.exists(path) or os.path.getsize(path) == 0
+
+    with open(path, "a", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=CSV_HEADERS)
+
+        if file_is_empty:
+            writer.writeheader()
+
+        for row in rows:
+            writer.writerow(row.to_csv_dict())
+
+    logger.info("Dopisano %s rekordów do CSV: %s", len(rows), path)
+
+
+def save_last_successful_snapshot(rows: List[MemeStockRow]) -> None:
+    atomic_write_json({
+        "saved_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source_url": TARGET_URL,
         "rows_count": len(rows),
         "rows": [row.to_json_dict() for row in rows],
-    }
+    }, LAST_SUCCESS_JSON)
 
-    temp_path = f"{path}.tmp"
-
-    with open(temp_path, mode="w", encoding="utf-8") as file:
-        json.dump(payload, file, ensure_ascii=False, indent=2)
-
-    os.replace(temp_path, path)
-
-    logger.info("Zapisano ostatni poprawny snapshot: %s", path)
+    logger.info("Zapisano ostatni poprawny snapshot: %s", LAST_SUCCESS_JSON)
 
 
 # ============================================================
-# BACKOFF DLA BŁĘDÓW
+# MAIN — JEDNO POBRANIE I KONIEC
 # ============================================================
 
-def compute_error_sleep_seconds(consecutive_errors: int) -> int:
-    base = max(REFRESH_INTERVAL_SECONDS, MIN_REFRESH_INTERVAL_SECONDS)
+def run_once() -> None:
+    now_utc, now_local = get_now()
 
-    sleep_seconds = base * (2 ** max(0, consecutive_errors - 1))
+    ensure_collection_window(now_local)
 
-    return min(sleep_seconds, 15 * 60)
+    fetched_at_utc = iso(now_utc)
+    fetched_at_local = iso(now_local)
+    csv_path = daily_csv_path(now_local)
 
+    logger.info("Start jednorazowego pobrania.")
+    logger.info("Czas lokalny: %s", fetched_at_local)
+    logger.info("Czas UTC: %s", fetched_at_utc)
+    logger.info("Plik dzienny CSV: %s", csv_path)
 
-def sleep_safely(seconds: int) -> None:
-    seconds = max(seconds, MIN_REFRESH_INTERVAL_SECONDS)
+    session = create_session()
 
-    logger.info("Czekam %s sekund przed kolejną próbą.", seconds)
-    time.sleep(seconds)
+    if CHECK_ROBOTS_TXT and not check_robots_txt_cached(session):
+        raise GracefulSkip("robots.txt nie pozwala na pobranie strony.")
 
+    html = fetch_html(session)
+    rows = parse_html(html, fetched_at_local, fetched_at_utc)
 
-# ============================================================
-# GŁÓWNA PĘTLA: REQUESTS
-# ============================================================
+    if len(rows) < 50:
+        logger.warning(
+            "Znaleziono tylko %s rekordów. Sprawdź, czy parser nadal pasuje.",
+            len(rows),
+        )
 
-def run_requests_scraper() -> None:
-    session = create_http_session()
+    append_rows_to_daily_csv(rows, csv_path)
+    save_last_successful_snapshot(rows)
 
-    if CHECK_ROBOTS_TXT:
-        allowed = check_robots_txt(session, TARGET_URL)
-
-        if not allowed:
-            return
-
-    consecutive_errors = 0
-    last_fingerprint: Optional[str] = None
-
-    while True:
-        try:
-            fetched_at = utc_now_iso()
-
-            html = fetch_html_requests(session, TARGET_URL)
-            rows = parse_html(html, fetched_at)
-
-            if not rows:
-                raise ParseScraperError("Parser zwrócił 0 rekordów.")
-
-            if len(rows) < 50:
-                logger.warning(
-                    "Znaleziono tylko %s rekordów. "
-                    "To może oznaczać zmianę HTML albo częściowe ładowanie JS.",
-                    len(rows),
-                )
-
-            current_fingerprint = compute_snapshot_fingerprint(rows)
-
-            if last_fingerprint is not None and current_fingerprint == last_fingerprint:
-                logger.info("Snapshot jest identyczny jak poprzedni.")
-
-                if not APPEND_UNCHANGED_SNAPSHOTS:
-                    logger.info("Nie dopisuję identycznego snapshotu do Excela.")
-                    sleep_until_next_scheduled_fetch()
-                    continue
-
-            else:
-                logger.info("Snapshot różni się od poprzedniego albo jest pierwszym pobraniem.")
-
-            append_rows_to_excel(rows, OUTPUT_XLSX)
-            save_last_successful_snapshot(rows, LAST_SUCCESS_JSON)
-
-            last_fingerprint = current_fingerprint
-            consecutive_errors = 0
-
-            sleep_until_next_scheduled_fetch()
-
-        except RateLimitedScraperError as exc:
-            consecutive_errors += 1
-
-            logger.warning("%s", exc)
-
-            if STOP_ON_429:
-                logger.error("STOP_ON_429=True, kończę działanie.")
-                break
-
-            if consecutive_errors >= MAX_CONSECUTIVE_ERRORS:
-                logger.error(
-                    "Za dużo błędów 429 lub innych błędów z rzędu. "
-                    "Kończę działanie. Rozważ oficjalne API albo kontakt z właścicielem strony."
-                )
-                break
-
-            sleep_seconds = exc.retry_after_seconds or DEFAULT_429_SLEEP_SECONDS
-            sleep_safely(sleep_seconds)
-
-        except BlockedScraperError as exc:
-            logger.error("%s", exc)
-
-            if STOP_ON_403:
-                logger.error(
-                    "Kończę działanie, żeby nie próbować obchodzić blokady. "
-                    "Rozważ oficjalne źródło danych."
-                )
-                break
-
-            consecutive_errors += 1
-            sleep_safely(compute_error_sleep_seconds(consecutive_errors))
-
-        except FatalScraperError as exc:
-            logger.error("%s", exc)
-            break
-
-        except (TransientScraperError, ParseScraperError) as exc:
-            consecutive_errors += 1
-
-            logger.warning("Błąd chwilowy/parsingowy: %s", exc)
-
-            if consecutive_errors >= MAX_CONSECUTIVE_ERRORS:
-                logger.error(
-                    "Osiągnięto limit błędów z rzędu. "
-                    "Kończę działanie, żeby nie wykonywać agresywnych prób."
-                )
-                break
-
-            sleep_safely(compute_error_sleep_seconds(consecutive_errors))
-
-        except KeyboardInterrupt:
-            logger.info("Zatrzymano ręcznie przez Ctrl+C.")
-            break
+    logger.info("Pobranie zakończone sukcesem.")
 
 
-# ============================================================
-# GŁÓWNA PĘTLA: PLAYWRIGHT
-# ============================================================
-
-def run_playwright_scraper() -> None:
-    session = create_http_session()
-
-    if CHECK_ROBOTS_TXT:
-        allowed = check_robots_txt(session, TARGET_URL)
-
-        if not allowed:
-            return
-
+def main() -> int:
     try:
-        from playwright.sync_api import sync_playwright
-    except ImportError as exc:
-        raise RuntimeError(
-            "Brakuje Playwright. Zainstaluj: "
-            "pip install playwright && playwright install chromium"
-        ) from exc
+        run_once()
+        return 0
 
-    consecutive_errors = 0
-    last_fingerprint: Optional[str] = None
-    page_already_loaded = False
+    except GracefulSkip as exc:
+        logger.warning("Kończę bez błędu: %s", exc)
+        return 0
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+    except (BlockedScraperError, RateLimitedScraperError) as exc:
+        logger.warning("Kończę bez błędu, żeby nie ponawiać agresywnie: %s", exc)
+        return 0
 
-        context = browser.new_context(
-            user_agent=USER_AGENT,
-            locale="en-US",
-        )
+    except ScraperError as exc:
+        logger.exception("Scraper zakończył się błędem: %s", exc)
+        return 1
 
-        context.set_extra_http_headers({
-            "Cache-Control": "no-cache",
-            "Pragma": "no-cache",
-        })
-
-        page = context.new_page()
-
-        try:
-            while True:
-                try:
-                    fetched_at = utc_now_iso()
-
-                    html = fetch_html_playwright(
-                        page=page,
-                        url=TARGET_URL,
-                        already_loaded=page_already_loaded,
-                    )
-
-                    page_already_loaded = True
-
-                    rows = parse_html(html, fetched_at)
-
-                    if not rows:
-                        raise ParseScraperError("Parser zwrócił 0 rekordów.")
-
-                    if len(rows) < 50:
-                        logger.warning(
-                            "Znaleziono tylko %s rekordów. "
-                            "Sprawdź selektory HTML.",
-                            len(rows),
-                        )
-
-                    current_fingerprint = compute_snapshot_fingerprint(rows)
-
-                    if last_fingerprint is not None and current_fingerprint == last_fingerprint:
-                        logger.info("Snapshot jest identyczny jak poprzedni.")
-
-                        if not APPEND_UNCHANGED_SNAPSHOTS:
-                            logger.info("Nie dopisuję identycznego snapshotu do Excela.")
-                            sleep_until_next_scheduled_fetch()
-                            continue
-
-                    else:
-                        logger.info("Snapshot różni się od poprzedniego albo jest pierwszym pobraniem.")
-
-                    append_rows_to_excel(rows, OUTPUT_XLSX)
-                    save_last_successful_snapshot(rows, LAST_SUCCESS_JSON)
-
-                    last_fingerprint = current_fingerprint
-                    consecutive_errors = 0
-
-                    sleep_until_next_scheduled_fetch()
-
-                except RateLimitedScraperError as exc:
-                    consecutive_errors += 1
-
-                    logger.warning("%s", exc)
-
-                    if STOP_ON_429:
-                        logger.error("STOP_ON_429=True, kończę działanie.")
-                        break
-
-                    if consecutive_errors >= MAX_CONSECUTIVE_ERRORS:
-                        logger.error(
-                            "Za dużo błędów 429 lub innych błędów z rzędu. "
-                            "Kończę działanie."
-                        )
-                        break
-
-                    sleep_seconds = exc.retry_after_seconds or DEFAULT_429_SLEEP_SECONDS
-                    sleep_safely(sleep_seconds)
-
-                except BlockedScraperError as exc:
-                    logger.error("%s", exc)
-
-                    if STOP_ON_403:
-                        logger.error(
-                            "Kończę działanie, żeby nie obchodzić blokady. "
-                            "Rozważ oficjalne źródło danych."
-                        )
-                        break
-
-                    consecutive_errors += 1
-                    sleep_safely(compute_error_sleep_seconds(consecutive_errors))
-
-                except FatalScraperError as exc:
-                    logger.error("%s", exc)
-                    break
-
-                except (TransientScraperError, ParseScraperError) as exc:
-                    consecutive_errors += 1
-
-                    logger.warning("Błąd chwilowy/parsingowy: %s", exc)
-
-                    if consecutive_errors >= MAX_CONSECUTIVE_ERRORS:
-                        logger.error(
-                            "Osiągnięto limit błędów z rzędu. "
-                            "Kończę działanie."
-                        )
-                        break
-
-                    sleep_safely(compute_error_sleep_seconds(consecutive_errors))
-
-                except KeyboardInterrupt:
-                    logger.info("Zatrzymano ręcznie przez Ctrl+C.")
-                    break
-
-        finally:
-            context.close()
-            browser.close()
-
-
-# ============================================================
-# MAIN
-# ============================================================
-
-def main() -> None:
-    if REFRESH_INTERVAL_SECONDS < MIN_REFRESH_INTERVAL_SECONDS:
-        raise ValueError(
-            f"REFRESH_INTERVAL_SECONDS nie może być mniejsze niż "
-            f"{MIN_REFRESH_INTERVAL_SECONDS}."
-        )
-
-    logger.info("Start scrapera.")
-    logger.info("Tryb: %s", SCRAPER_MODE)
-    logger.info("Interwał: %s sekund", REFRESH_INTERVAL_SECONDS)
-    logger.info("Wyrównanie do 5-minutowych granic: %s", ALIGN_TO_5_MIN_BOUNDARY)
-    logger.info("Bufor po granicy: %s sekund", FETCH_AFTER_BOUNDARY_DELAY_SECONDS)
-    logger.info("URL: %s", TARGET_URL)
-    logger.info("Plik Excel: %s", OUTPUT_XLSX)
-    logger.info("Force refresh: %s", FORCE_PAGE_REFRESH)
-    logger.info("Cache buster query param: %s", USE_CACHE_BUSTER_QUERY_PARAM)
-
-    if SCRAPER_MODE == "requests":
-        run_requests_scraper()
-
-    elif SCRAPER_MODE == "playwright":
-        run_playwright_scraper()
-
-    else:
-        raise ValueError('SCRAPER_MODE musi mieć wartość "requests" albo "playwright".')
-
-    logger.info("Scraper zakończył działanie.")
+    except Exception as exc:
+        logger.exception("Nieoczekiwany błąd: %s", exc)
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
