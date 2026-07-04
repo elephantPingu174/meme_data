@@ -55,6 +55,7 @@ jobs:
 
       - name: Run scraper once
         run: |
+          sleep 10
           python meme_scraper.py
 
       - name: Commit updated data
