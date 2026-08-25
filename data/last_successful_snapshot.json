@@ -1,203 +1,203 @@
 {
-  "saved_at_utc": "2026-08-25T08:40:21+00:00",
+  "saved_at_utc": "2026-08-25T09:19:31+00:00",
   "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
   "rows_count": 100,
   "rows": [
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 1,
       "ticker": "NVDA",
       "company_name": "NVIDIA",
-      "upvotes": 3263,
-      "mentions": 371,
-      "mention_change": 254,
+      "upvotes": 3299,
+      "mentions": 372,
+      "mention_change": 253,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 1 . NVDA NVIDIA 3,263 371 + 254"
+      "raw_text": "# 1 . NVDA NVIDIA 3,299 372 + 253"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 2,
       "ticker": "SPY",
       "company_name": "SPDR S&P 500 ETF Trust",
-      "upvotes": 2200,
-      "mentions": 225,
-      "mention_change": 141,
+      "upvotes": 2268,
+      "mentions": 223,
+      "mention_change": 138,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 2 . SPY SPDR S&P 500 ETF Trust 2,200 225 + 141"
+      "raw_text": "# 2 . SPY SPDR S&P 500 ETF Trust 2,268 223 + 138"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 3,
       "ticker": "MU",
       "company_name": "Micron Technology",
-      "upvotes": 1979,
-      "mentions": 174,
-      "mention_change": 136,
+      "upvotes": 2007,
+      "mentions": 172,
+      "mention_change": 133,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 3 . MU Micron Technology 1,979 174 + 136"
+      "raw_text": "# 3 . MU Micron Technology 2,007 172 + 133"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 4,
       "ticker": "SNDK",
       "company_name": "Sandisk",
-      "upvotes": 1624,
-      "mentions": 95,
+      "upvotes": 1654,
+      "mentions": 96,
       "mention_change": 60,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 4 . SNDK Sandisk 1,624 95 + 60"
+      "raw_text": "# 4 . SNDK Sandisk 1,654 96 + 60"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 5,
       "ticker": "MSTR",
       "company_name": "MicroStrategy",
-      "upvotes": 188,
-      "mentions": 85,
-      "mention_change": 49,
+      "upvotes": 190,
+      "mentions": 82,
+      "mention_change": 45,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 5 . MSTR MicroStrategy 188 85 + 49"
+      "raw_text": "# 5 . MSTR MicroStrategy 190 82 + 45"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 6,
       "ticker": "QQQ",
       "company_name": "Invesco QQQ ETF",
-      "upvotes": 200,
-      "mentions": 82,
-      "mention_change": 65,
+      "upvotes": 201,
+      "mentions": 81,
+      "mention_change": 64,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 6 . QQQ Invesco QQQ ETF 200 82 + 65"
+      "raw_text": "# 6 . QQQ Invesco QQQ ETF 201 81 + 64"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 7,
       "ticker": "DTE",
       "company_name": "DTE Energy",
-      "upvotes": 155,
+      "upvotes": 157,
       "mentions": 59,
       "mention_change": 31,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 7 . DTE DTE Energy 155 59 + 31"
+      "raw_text": "# 7 . DTE DTE Energy 157 59 + 31"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 8,
       "ticker": "META",
       "company_name": "Meta Platforms (Facebook)",
-      "upvotes": 147,
+      "upvotes": 152,
       "mentions": 55,
-      "mention_change": 28,
+      "mention_change": 27,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 8 . META Meta Platforms (Facebook) 147 55 + 28"
+      "raw_text": "# 8 . META Meta Platforms (Facebook) 152 55 + 27"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 9,
       "ticker": "NBIS",
       "company_name": "Nebius Group",
-      "upvotes": 1750,
+      "upvotes": 1800,
       "mentions": 44,
       "mention_change": 28,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 9 . NBIS Nebius Group 1,750 44 + 28"
+      "raw_text": "# 9 . NBIS Nebius Group 1,800 44 + 28"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 10,
       "ticker": "MRNA",
       "company_name": "Moderna",
-      "upvotes": 64,
-      "mentions": 42,
-      "mention_change": 29,
+      "upvotes": 61,
+      "mentions": 41,
+      "mention_change": 26,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 10 . MRNA Moderna 64 42 + 29"
+      "raw_text": "# 10 . MRNA Moderna 61 41 + 26"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 11,
-      "ticker": "SLS",
-      "company_name": "Sellas Life Sciences",
-      "upvotes": 88,
-      "mentions": 40,
-      "mention_change": -21,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 11 . SLS Sellas Life Sciences 88 40 -21"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 12,
       "ticker": "SOXL",
       "company_name": "Direxion Shares ETF Trust - Direxion Daily Semiconductor Bull 3X Share",
-      "upvotes": 83,
+      "upvotes": 82,
       "mentions": 38,
       "mention_change": 31,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 12 . SOXL Direxion Shares ETF Trust - Direxion Daily Semiconductor Bull 3X Share 83 38 + 31"
+      "raw_text": "# 11 . SOXL Direxion Shares ETF Trust - Direxion Daily Semiconductor Bull 3X Share 82 38 + 31"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 12,
+      "ticker": "SLS",
+      "company_name": "Sellas Life Sciences",
+      "upvotes": 86,
+      "mentions": 38,
+      "mention_change": -26,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 12 . SLS Sellas Life Sciences 86 38 -26"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 13,
       "ticker": "ASTS",
       "company_name": "AST SpaceMobile",
-      "upvotes": 1992,
+      "upvotes": 2001,
       "mentions": 38,
       "mention_change": 30,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 13 . ASTS AST SpaceMobile 1,992 38 + 30"
+      "raw_text": "# 13 . ASTS AST SpaceMobile 2,001 38 + 30"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 14,
       "ticker": "SPCX",
       "company_name": "SpaceX",
       "upvotes": 64,
       "mentions": 35,
-      "mention_change": 11,
+      "mention_change": 12,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 14 . SPCX SpaceX 64 35 + 11"
+      "raw_text": "# 14 . SPCX SpaceX 64 35 + 12"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 15,
       "ticker": "MSFT",
       "company_name": "Microsoft",
-      "upvotes": 124,
+      "upvotes": 126,
       "mentions": 33,
       "mention_change": 23,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 15 . MSFT Microsoft 124 33 + 23"
+      "raw_text": "# 15 . MSFT Microsoft 126 33 + 23"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 16,
       "ticker": "AM",
       "company_name": "Antero Midstream",
       "upvotes": 142,
-      "mentions": 33,
-      "mention_change": 26,
+      "mentions": 32,
+      "mention_change": 25,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 16 . AM Antero Midstream 142 33 + 26"
+      "raw_text": "# 16 . AM Antero Midstream 142 32 + 25"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 17,
       "ticker": "TSLA",
       "company_name": "Tesla",
@@ -208,56 +208,56 @@
       "raw_text": "# 17 . TSLA Tesla 87 31 + 21"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 18,
       "ticker": "INTC",
       "company_name": "Intel",
-      "upvotes": 351,
+      "upvotes": 361,
       "mentions": 31,
       "mention_change": 26,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 18 . INTC Intel 351 31 + 26"
+      "raw_text": "# 18 . INTC Intel 361 31 + 26"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 19,
+      "ticker": "BE",
+      "company_name": "Bloom Energy",
+      "upvotes": 55,
+      "mentions": 31,
+      "mention_change": 27,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 19 . BE Bloom Energy 55 31 + 27"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 20,
       "ticker": "GOOG",
       "company_name": "Alphabet (Google)",
-      "upvotes": 82,
+      "upvotes": 83,
       "mentions": 30,
       "mention_change": 22,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 19 . GOOG Alphabet (Google) 82 30 + 22"
+      "raw_text": "# 20 . GOOG Alphabet (Google) 83 30 + 22"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 20,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 21,
       "ticker": "GOOGL",
       "company_name": "Alphabet (Google)",
       "upvotes": 109,
       "mentions": 30,
       "mention_change": 15,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 20 . GOOGL Alphabet (Google) 109 30 + 15"
+      "raw_text": "# 21 . GOOGL Alphabet (Google) 109 30 + 15"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 21,
-      "ticker": "BE",
-      "company_name": "Bloom Energy",
-      "upvotes": 49,
-      "mentions": 29,
-      "mention_change": 23,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 21 . BE Bloom Energy 49 29 + 23"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 22,
       "ticker": "AVGO",
       "company_name": "Broadcom",
@@ -268,116 +268,116 @@
       "raw_text": "# 22 . AVGO Broadcom 79 27 + 22"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 23,
       "ticker": "AAPL",
       "company_name": "Apple",
-      "upvotes": 48,
+      "upvotes": 54,
       "mentions": 26,
       "mention_change": 24,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 23 . AAPL Apple 48 26 + 24"
+      "raw_text": "# 23 . AAPL Apple 54 26 + 24"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 24,
       "ticker": "RKLB",
       "company_name": "Rocket Lab USA",
       "upvotes": 55,
       "mentions": 25,
-      "mention_change": 22,
+      "mention_change": 24,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 24 . RKLB Rocket Lab USA 55 25 + 22"
+      "raw_text": "# 24 . RKLB Rocket Lab USA 55 25 + 24"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 25,
-      "ticker": "VOO",
-      "company_name": "Vanguard S&P 500 ETF",
-      "upvotes": 240,
-      "mentions": 23,
+      "ticker": "AMD",
+      "company_name": "AMD",
+      "upvotes": 82,
+      "mentions": 22,
       "mention_change": 10,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 25 . VOO Vanguard S&P 500 ETF 240 23 + 10"
+      "raw_text": "# 25 . AMD AMD 82 22 + 10"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 26,
+      "ticker": "VOO",
+      "company_name": "Vanguard S&P 500 ETF",
+      "upvotes": 238,
+      "mentions": 22,
+      "mention_change": 8,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 26 . VOO Vanguard S&P 500 ETF 238 22 + 8"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 27,
       "ticker": "RDDT",
       "company_name": "Reddit",
       "upvotes": 91,
       "mentions": 22,
       "mention_change": 16,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 26 . RDDT Reddit 91 22 + 16"
+      "raw_text": "# 27 . RDDT Reddit 91 22 + 16"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 27,
-      "ticker": "AMD",
-      "company_name": "AMD",
-      "upvotes": 75,
-      "mentions": 21,
-      "mention_change": 9,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 27 . AMD AMD 75 21 + 9"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 28,
       "ticker": "GLD",
       "company_name": "SSgA SPDR Gold Shares",
-      "upvotes": 78,
-      "mentions": 21,
-      "mention_change": 15,
+      "upvotes": 76,
+      "mentions": 20,
+      "mention_change": 14,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 28 . GLD SSgA SPDR Gold Shares 78 21 + 15"
+      "raw_text": "# 28 . GLD SSgA SPDR Gold Shares 76 20 + 14"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 29,
+      "ticker": "TTWO",
+      "company_name": "Take 2 Interactive",
+      "upvotes": 24,
+      "mentions": 19,
+      "mention_change": 15,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 29 . TTWO Take 2 Interactive 24 19 + 15"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 30,
       "ticker": "HTZ",
       "company_name": "Hertz",
-      "upvotes": 7,
+      "upvotes": 5,
       "mentions": 19,
       "mention_change": 8,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 29 . HTZ Hertz 7 19 + 8"
+      "raw_text": "# 30 . HTZ Hertz 5 19 + 8"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 30,
-      "ticker": "TTWO",
-      "company_name": "Take 2 Interactive",
-      "upvotes": 23,
-      "mentions": 18,
-      "mention_change": 14,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 30 . TTWO Take 2 Interactive 23 18 + 14"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 31,
       "ticker": "GLP",
       "company_name": "Global Partners LP",
-      "upvotes": 5960,
+      "upvotes": 6001,
       "mentions": 18,
       "mention_change": 17,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 31 . GLP Global Partners LP 5,960 18 + 17"
+      "raw_text": "# 31 . GLP Global Partners LP 6,001 18 + 17"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 32,
       "ticker": "EU",
       "company_name": "enCore Energy",
@@ -388,8 +388,8 @@
       "raw_text": "# 32 . EU enCore Energy 167 17 + 11"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 33,
       "ticker": "HOOD",
       "company_name": "Robinhood",
@@ -400,44 +400,44 @@
       "raw_text": "# 33 . HOOD Robinhood 34 15 + 12"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 34,
+      "ticker": "YOU",
+      "company_name": "CLEAR Secure",
+      "upvotes": 77,
+      "mentions": 15,
+      "mention_change": 5,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 34 . YOU CLEAR Secure 77 15 + 5"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 35,
       "ticker": "MRVL",
       "company_name": "Marvell Technology Group",
       "upvotes": 44,
       "mentions": 14,
-      "mention_change": 4,
+      "mention_change": 3,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 34 . MRVL Marvell Technology Group 44 14 + 4"
+      "raw_text": "# 35 . MRVL Marvell Technology Group 44 14 + 3"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 35,
-      "ticker": "YOU",
-      "company_name": "CLEAR Secure",
-      "upvotes": 80,
-      "mentions": 14,
-      "mention_change": 4,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 35 . YOU CLEAR Secure 80 14 + 4"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 36,
-      "ticker": "IREN",
-      "company_name": "Iris Energy",
-      "upvotes": 29,
+      "ticker": "CRWV",
+      "company_name": "CoreWeave",
+      "upvotes": 1445,
       "mentions": 14,
-      "mention_change": -1,
+      "mention_change": 2,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 36 . IREN Iris Energy 29 14 -1"
+      "raw_text": "# 36 . CRWV CoreWeave 1,445 14 + 2"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 37,
       "ticker": "IT",
       "company_name": "Gartner",
@@ -448,116 +448,116 @@
       "raw_text": "# 37 . IT Gartner 84 13 + 9"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 38,
       "ticker": "MAGA",
       "company_name": "ETF Series Solutions Trust - Point Bridge GOP Stock Tracker ETF",
-      "upvotes": 64,
+      "upvotes": 69,
       "mentions": 13,
       "mention_change": 11,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 38 . MAGA ETF Series Solutions Trust - Point Bridge GOP Stock Tracker ETF 64 13 + 11"
+      "raw_text": "# 38 . MAGA ETF Series Solutions Trust - Point Bridge GOP Stock Tracker ETF 69 13 + 11"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 39,
       "ticker": "AAOI",
       "company_name": "Applied Optoelectronics",
-      "upvotes": 25,
+      "upvotes": 23,
       "mentions": 13,
       "mention_change": -6,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 39 . AAOI Applied Optoelectronics 25 13 -6"
+      "raw_text": "# 39 . AAOI Applied Optoelectronics 23 13 -6"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 40,
-      "ticker": "CRWV",
-      "company_name": "CoreWeave",
-      "upvotes": 1415,
-      "mentions": 13,
-      "mention_change": -1,
+      "ticker": "ALL",
+      "company_name": "Allstate",
+      "upvotes": 30,
+      "mentions": 12,
+      "mention_change": 11,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 40 . CRWV CoreWeave 1,415 13 -1"
+      "raw_text": "# 40 . ALL Allstate 30 12 + 11"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 41,
       "ticker": "NOW",
       "company_name": "ServiceNow",
       "upvotes": 20,
       "mentions": 12,
-      "mention_change": 8,
+      "mention_change": 9,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 41 . NOW ServiceNow 20 12 + 8"
+      "raw_text": "# 41 . NOW ServiceNow 20 12 + 9"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 42,
+      "ticker": "IREN",
+      "company_name": "Iris Energy",
+      "upvotes": 27,
+      "mentions": 12,
+      "mention_change": -3,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 42 . IREN Iris Energy 27 12 -3"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 43,
       "ticker": "AMZN",
       "company_name": "Amazon",
       "upvotes": 20,
       "mentions": 11,
       "mention_change": 6,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 42 . AMZN Amazon 20 11 + 6"
+      "raw_text": "# 43 . AMZN Amazon 20 11 + 6"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 43,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 44,
       "ticker": "WMT",
       "company_name": "Walmart",
       "upvotes": 21,
       "mentions": 11,
       "mention_change": -6,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 43 . WMT Walmart 21 11 -6"
+      "raw_text": "# 44 . WMT Walmart 21 11 -6"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 44,
-      "ticker": "ALL",
-      "company_name": "Allstate",
-      "upvotes": 30,
-      "mentions": 11,
-      "mention_change": 10,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 44 . ALL Allstate 30 11 + 10"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 45,
       "ticker": "BK",
       "company_name": "Bank of New York Mellon",
-      "upvotes": 144,
+      "upvotes": 145,
       "mentions": 10,
       "mention_change": 10,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 45 . BK Bank of New York Mellon 144 10 + 10"
+      "raw_text": "# 45 . BK Bank of New York Mellon 145 10 + 10"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 46,
       "ticker": "BMO",
       "company_name": "Bank of Montreal",
-      "upvotes": 51,
+      "upvotes": 54,
       "mentions": 10,
       "mention_change": 10,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 46 . BMO Bank of Montreal 51 10 + 10"
+      "raw_text": "# 46 . BMO Bank of Montreal 54 10 + 10"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 47,
       "ticker": "ET",
       "company_name": "Energy Transfer Partners",
@@ -568,8 +568,8 @@
       "raw_text": "# 47 . ET Energy Transfer Partners 168 10 + 9"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 48,
       "ticker": "AGI",
       "company_name": "Alamos Gold",
@@ -580,8 +580,8 @@
       "raw_text": "# 48 . AGI Alamos Gold 21 10 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 49,
       "ticker": "DC",
       "company_name": "Dakota Gold",
@@ -592,8 +592,8 @@
       "raw_text": "# 49 . DC Dakota Gold 19 10 + 7"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 50,
       "ticker": "BULL",
       "company_name": "Webull",
@@ -604,32 +604,32 @@
       "raw_text": "# 50 . BULL Webull 23 10 + 9"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 51,
       "ticker": "LULU",
       "company_name": "lululemon athletica",
-      "upvotes": 366,
+      "upvotes": 374,
       "mentions": 9,
       "mention_change": 8,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 51 . LULU lululemon athletica 366 9 + 8"
+      "raw_text": "# 51 . LULU lululemon athletica 374 9 + 8"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 52,
       "ticker": "SOXX",
       "company_name": "BlackRock Institutional Trust Company N.A. - BTC iShares PHLX Semicond",
-      "upvotes": 109,
+      "upvotes": 115,
       "mentions": 9,
       "mention_change": 8,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 52 . SOXX BlackRock Institutional Trust Company N.A. - BTC iShares PHLX Semicond 109 9 + 8"
+      "raw_text": "# 52 . SOXX BlackRock Institutional Trust Company N.A. - BTC iShares PHLX Semicond 115 9 + 8"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 53,
       "ticker": "VXUS",
       "company_name": "Vanguard Group, Inc. - Vanguard Total International Stock ETF",
@@ -640,8 +640,8 @@
       "raw_text": "# 53 . VXUS Vanguard Group, Inc. - Vanguard Total International Stock ETF 14 9 -3"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 54,
       "ticker": "FOR",
       "company_name": "Forestar Group",
@@ -652,56 +652,56 @@
       "raw_text": "# 54 . FOR Forestar Group 22 9 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 55,
       "ticker": "BMNR",
       "company_name": "Bitmine Immersion Technologies",
-      "upvotes": 123,
+      "upvotes": 128,
       "mentions": 9,
       "mention_change": 8,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 55 . BMNR Bitmine Immersion Technologies 123 9 + 8"
+      "raw_text": "# 55 . BMNR Bitmine Immersion Technologies 128 9 + 8"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 56,
+      "ticker": "CSCO",
+      "company_name": "Cisco",
+      "upvotes": 9,
+      "mentions": 8,
+      "mention_change": 7,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 56 . CSCO Cisco 9 8 + 7"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 57,
       "ticker": "IP",
       "company_name": "International Paper",
       "upvotes": 13,
       "mentions": 8,
       "mention_change": 7,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 56 . IP International Paper 13 8 + 7"
+      "raw_text": "# 57 . IP International Paper 13 8 + 7"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 57,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 58,
       "ticker": "VTI",
       "company_name": "Vanguard Total Stock Market ETF",
       "upvotes": 20,
       "mentions": 8,
       "mention_change": -5,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 57 . VTI Vanguard Total Stock Market ETF 20 8 -5"
+      "raw_text": "# 58 . VTI Vanguard Total Stock Market ETF 20 8 -5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 58,
-      "ticker": "TLT",
-      "company_name": "BlackRock Institutional Trust Company N.A. - BTC iShares 20+ Year Trea",
-      "upvotes": 10,
-      "mentions": 8,
-      "mention_change": 5,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 58 . TLT BlackRock Institutional Trust Company N.A. - BTC iShares 20+ Year Trea 10 8 + 5"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 59,
       "ticker": "MA",
       "company_name": "Mastercard",
@@ -712,80 +712,80 @@
       "raw_text": "# 59 . MA Mastercard 10 7 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 60,
-      "ticker": "CSCO",
-      "company_name": "Cisco",
-      "upvotes": 8,
-      "mentions": 7,
-      "mention_change": 6,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 60 . CSCO Cisco 8 7 + 6"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 61,
       "ticker": "GM",
       "company_name": "General Motors",
       "upvotes": 576,
       "mentions": 7,
       "mention_change": 6,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 61 . GM General Motors 576 7 + 6"
+      "raw_text": "# 60 . GM General Motors 576 7 + 6"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 62,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 61,
       "ticker": "SA",
       "company_name": "Seabridge Gold",
       "upvotes": 7,
       "mentions": 7,
       "mention_change": 6,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 62 . SA Seabridge Gold 7 7 + 6"
+      "raw_text": "# 61 . SA Seabridge Gold 7 7 + 6"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 63,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 62,
       "ticker": "PLTR",
       "company_name": "Palantir",
-      "upvotes": 1351,
+      "upvotes": 1379,
       "mentions": 7,
       "mention_change": 0,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 63 . PLTR Palantir 1,351 7 + 0"
+      "raw_text": "# 62 . PLTR Palantir 1,379 7 + 0"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 64,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 63,
       "ticker": "VT",
       "company_name": "Vanguard Group, Inc. - Vanguard Total World Stock ETF",
       "upvotes": 38,
       "mentions": 7,
       "mention_change": 3,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 64 . VT Vanguard Group, Inc. - Vanguard Total World Stock ETF 38 7 + 3"
+      "raw_text": "# 63 . VT Vanguard Group, Inc. - Vanguard Total World Stock ETF 38 7 + 3"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 64,
+      "ticker": "TLT",
+      "company_name": "BlackRock Institutional Trust Company N.A. - BTC iShares 20+ Year Trea",
+      "upvotes": 9,
+      "mentions": 7,
+      "mention_change": 3,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 64 . TLT BlackRock Institutional Trust Company N.A. - BTC iShares 20+ Year Trea 9 7 + 3"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 65,
       "ticker": "AAA",
       "company_name": "Listed Funds Trust - AAF First Priority CLO Bond ETF",
-      "upvotes": 39,
+      "upvotes": 44,
       "mentions": 7,
       "mention_change": 6,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 65 . AAA Listed Funds Trust - AAF First Priority CLO Bond ETF 39 7 + 6"
+      "raw_text": "# 65 . AAA Listed Funds Trust - AAF First Priority CLO Bond ETF 44 7 + 6"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 66,
       "ticker": "SOXS",
       "company_name": "Direxion Shares ETF Trust - Direxion Daily Semiconductor Bear 3X Share",
@@ -796,20 +796,20 @@
       "raw_text": "# 66 . SOXS Direxion Shares ETF Trust - Direxion Daily Semiconductor Bear 3X Share 13 7 + 0"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 67,
       "ticker": "SGOV",
       "company_name": "iShares Trust - iShares 0-3 Month Treasury Bond ETF",
       "upvotes": 9,
       "mentions": 7,
-      "mention_change": 5,
+      "mention_change": 4,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 67 . SGOV iShares Trust - iShares 0-3 Month Treasury Bond ETF 9 7 + 5"
+      "raw_text": "# 67 . SGOV iShares Trust - iShares 0-3 Month Treasury Bond ETF 9 7 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 68,
       "ticker": "APP",
       "company_name": "AppLovin",
@@ -820,8 +820,8 @@
       "raw_text": "# 68 . APP AppLovin 11 7 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 69,
       "ticker": "NFLX",
       "company_name": "Netflix",
@@ -832,8 +832,8 @@
       "raw_text": "# 69 . NFLX Netflix 14 6 -5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 70,
       "ticker": "EA",
       "company_name": "Electronic Arts",
@@ -844,8 +844,8 @@
       "raw_text": "# 70 . EA Electronic Arts 9 6 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 71,
       "ticker": "INTU",
       "company_name": "Intuit",
@@ -856,8 +856,8 @@
       "raw_text": "# 71 . INTU Intuit 9 6 + 6"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 72,
       "ticker": "WEN",
       "company_name": "Wendy’s Company",
@@ -868,8 +868,8 @@
       "raw_text": "# 72 . WEN Wendy’s Company 9 6 -2"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 73,
       "ticker": "PS",
       "company_name": "Pluralsight",
@@ -880,8 +880,8 @@
       "raw_text": "# 73 . PS Pluralsight 20 6 + 6"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 74,
       "ticker": "ON",
       "company_name": "ON Semiconductor",
@@ -892,20 +892,20 @@
       "raw_text": "# 74 . ON ON Semiconductor 11 6 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 75,
       "ticker": "IQ",
       "company_name": "iQIYI",
-      "upvotes": 52,
+      "upvotes": 50,
       "mentions": 6,
       "mention_change": 2,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 75 . IQ iQIYI 52 6 + 2"
+      "raw_text": "# 75 . IQ iQIYI 50 6 + 2"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 76,
       "ticker": "CC",
       "company_name": "Chemours",
@@ -916,8 +916,8 @@
       "raw_text": "# 76 . CC Chemours 16 6 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 77,
       "ticker": "HBM",
       "company_name": "Hudbay Minerals",
@@ -928,8 +928,8 @@
       "raw_text": "# 77 . HBM Hudbay Minerals 39 6 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 78,
       "ticker": "SMH",
       "company_name": "VanEck Vectors ETF Trust - VanEck Vectors Semiconductor ETF",
@@ -940,8 +940,8 @@
       "raw_text": "# 78 . SMH VanEck Vectors ETF Trust - VanEck Vectors Semiconductor ETF 8 6 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 79,
       "ticker": "MMA",
       "company_name": "Alta Global Group",
@@ -952,8 +952,8 @@
       "raw_text": "# 79 . MMA Alta Global Group -1 6 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 80,
       "ticker": "KEEL",
       "company_name": "Keel Infrastructure",
@@ -964,20 +964,20 @@
       "raw_text": "# 80 . KEEL Keel Infrastructure 9 6 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 81,
       "ticker": "ICE",
       "company_name": "Intercontinental Exchange",
-      "upvotes": 37,
+      "upvotes": 38,
       "mentions": 5,
       "mention_change": 2,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 81 . ICE Intercontinental Exchange 37 5 + 2"
+      "raw_text": "# 81 . ICE Intercontinental Exchange 38 5 + 2"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 82,
       "ticker": "CRM",
       "company_name": "Salesforce",
@@ -988,8 +988,8 @@
       "raw_text": "# 82 . CRM Salesforce 7 5 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 83,
       "ticker": "SF",
       "company_name": "Stifel",
@@ -1000,128 +1000,128 @@
       "raw_text": "# 83 . SF Stifel 8 5 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 84,
       "ticker": "ELF",
       "company_name": "e.l.f. Cosmetics",
-      "upvotes": 23,
+      "upvotes": 22,
       "mentions": 5,
       "mention_change": 5,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 84 . ELF e.l.f. Cosmetics 23 5 + 5"
+      "raw_text": "# 84 . ELF e.l.f. Cosmetics 22 5 + 5"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 85,
+      "ticker": "JUST",
+      "company_name": "Goldman Sachs ETF Trust - Goldman Sachs Just Us Large Cap Equity ETF",
+      "upvotes": 85,
+      "mentions": 5,
+      "mention_change": 2,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 85 . JUST Goldman Sachs ETF Trust - Goldman Sachs Just Us Large Cap Equity ETF 85 5 + 2"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 86,
       "ticker": "IG",
       "company_name": "Principal Exchange-Traded Funds - Principal Investment Grade Corporate",
       "upvotes": 12,
       "mentions": 5,
       "mention_change": 3,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 85 . IG Principal Exchange-Traded Funds - Principal Investment Grade Corporate 12 5 + 3"
+      "raw_text": "# 86 . IG Principal Exchange-Traded Funds - Principal Investment Grade Corporate 12 5 + 3"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 86,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 87,
       "ticker": "DON",
       "company_name": "WisdomTree Trust - WisdomTree U.S. MidCap Dividend Fund",
-      "upvotes": 43,
+      "upvotes": 45,
       "mentions": 5,
       "mention_change": 4,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 86 . DON WisdomTree Trust - WisdomTree U.S. MidCap Dividend Fund 43 5 + 4"
+      "raw_text": "# 87 . DON WisdomTree Trust - WisdomTree U.S. MidCap Dividend Fund 45 5 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 87,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 88,
       "ticker": "PR",
       "company_name": "Permian Resources",
-      "upvotes": 15,
+      "upvotes": 16,
       "mentions": 5,
       "mention_change": -2,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 87 . PR Permian Resources 15 5 -2"
+      "raw_text": "# 88 . PR Permian Resources 16 5 -2"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 88,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 89,
       "ticker": "ONDS",
       "company_name": "Ondas Holdings",
-      "upvotes": 12,
+      "upvotes": 11,
       "mentions": 5,
       "mention_change": 4,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 88 . ONDS Ondas Holdings 12 5 + 4"
+      "raw_text": "# 89 . ONDS Ondas Holdings 11 5 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 89,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 90,
       "ticker": "CBRS",
       "company_name": "Cerebras Systems",
       "upvotes": 10,
       "mentions": 5,
       "mention_change": 4,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 89 . CBRS Cerebras Systems 10 5 + 4"
+      "raw_text": "# 90 . CBRS Cerebras Systems 10 5 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 90,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 91,
       "ticker": "ES",
       "company_name": "Eversource Energy",
       "upvotes": 8,
       "mentions": 4,
       "mention_change": -7,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 90 . ES Eversource Energy 8 4 -7"
+      "raw_text": "# 91 . ES Eversource Energy 8 4 -7"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 91,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 92,
       "ticker": "SO",
       "company_name": "Southern Company",
       "upvotes": 53,
       "mentions": 4,
       "mention_change": -2,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 91 . SO Southern Company 53 4 -2"
+      "raw_text": "# 92 . SO Southern Company 53 4 -2"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 92,
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 93,
       "ticker": "RE",
       "company_name": "Everest Re",
       "upvotes": 25,
       "mentions": 4,
       "mention_change": 3,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 92 . RE Everest Re 25 4 + 3"
+      "raw_text": "# 93 . RE Everest Re 25 4 + 3"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 93,
-      "ticker": "MT",
-      "company_name": "ArcelorMittal",
-      "upvotes": 11,
-      "mentions": 4,
-      "mention_change": 3,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 93 . MT ArcelorMittal 11 4 + 3"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 94,
       "ticker": "WH",
       "company_name": "Wyndham Hotels & Resorts",
@@ -1132,8 +1132,8 @@
       "raw_text": "# 94 . WH Wyndham Hotels & Resorts 8 4 + 3"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 95,
       "ticker": "TH",
       "company_name": "Target Hospitality",
@@ -1144,8 +1144,8 @@
       "raw_text": "# 95 . TH Target Hospitality -8 4 + 3"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 96,
       "ticker": "DKS",
       "company_name": "Dick's Sporting Goods",
@@ -1156,52 +1156,52 @@
       "raw_text": "# 96 . DKS Dick's Sporting Goods 9 4 + 4"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 97,
-      "ticker": "JUST",
-      "company_name": "Goldman Sachs ETF Trust - Goldman Sachs Just Us Large Cap Equity ETF",
-      "upvotes": 84,
-      "mentions": 4,
-      "mention_change": 1,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 97 . JUST Goldman Sachs ETF Trust - Goldman Sachs Just Us Large Cap Equity ETF 84 4 + 1"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 98,
       "ticker": "SLV",
       "company_name": "iShares Silver Trust",
       "upvotes": 7,
       "mentions": 4,
       "mention_change": 2,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 98 . SLV iShares Silver Trust 7 4 + 2"
+      "raw_text": "# 97 . SLV iShares Silver Trust 7 4 + 2"
     },
     {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 98,
+      "ticker": "SONY",
+      "company_name": "Sony",
+      "upvotes": 4,
+      "mentions": 4,
+      "mention_change": 4,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 98 . SONY Sony 4 4 + 4"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
       "rank": 99,
+      "ticker": "CAN",
+      "company_name": "Canaan",
+      "upvotes": 2,
+      "mentions": 4,
+      "mention_change": 3,
+      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
+      "raw_text": "# 99 . CAN Canaan 2 4 + 3"
+    },
+    {
+      "fetched_at_local": "2026-08-25T11:19:31+02:00",
+      "fetched_at_utc": "2026-08-25T09:19:31+00:00",
+      "rank": 100,
       "ticker": "UP",
       "company_name": "Wheels Up",
       "upvotes": 10,
       "mentions": 4,
       "mention_change": 1,
       "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 99 . UP Wheels Up 10 4 + 1"
-    },
-    {
-      "fetched_at_local": "2026-08-25T10:40:21+02:00",
-      "fetched_at_utc": "2026-08-25T08:40:21+00:00",
-      "rank": 100,
-      "ticker": "RNA",
-      "company_name": "Avidity Biosciences",
-      "upvotes": 3,
-      "mentions": 4,
-      "mention_change": 3,
-      "source_url": "https://feargreedmeter.com/top-100-most-popular-meme-stocks-today",
-      "raw_text": "# 100 . RNA Avidity Biosciences 3 4 + 3"
+      "raw_text": "# 100 . UP Wheels Up 10 4 + 1"
     }
   ]
 }
