@@ -399,3 +399,103 @@ data_pobrania,kod,nazwa,upvotes,mentions,rank,mention_change,source_url
 2026-10-10T20:07:45+02:00,UBER,Uber,5,2,98,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
 2026-10-10T20:07:45+02:00,SF,Stifel,,2,99,-1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
 2026-10-10T20:07:45+02:00,OI,O-I Glass,4,2,100,-1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ASTS,AST SpaceMobile,194,47,1,-295,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,SPY,SPDR S&P 500 ETF Trust,108,45,2,-159,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MU,Micron Technology,261,36,3,-201,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,DTE,DTE Energy,103,30,4,-45,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,VOO,Vanguard S&P 500 ETF,50,21,5,11,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,SPCX,SpaceX,144,19,6,-104,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,QQQ,Invesco QQQ ETF,37,15,7,-84,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,NVDA,NVIDIA,96,14,8,-72,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ARR,ARMOUR Residential REIT,17,13,9,4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,RDDT,Reddit,88,13,10,-9,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MSFT,Microsoft,11,12,11,-33,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,SOXL,Direxion Shares ETF Trust - Direxion Daily Semiconductor Bull 3X Share,16,12,12,-37,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,IT,Gartner,17,11,13,-18,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,EU,enCore Energy,51,11,14,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,TSLA,Tesla,59,10,15,-31,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AMD,AMD,67,10,16,-33,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,VZ,Verizon,11,10,17,-28,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,NFLX,Netflix,31,9,18,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ES,Eversource Energy,24,9,19,-1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AM,Antero Midstream,29,9,20,-6,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AGI,Alamos Gold,19,9,21,-2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,PLTR,Palantir,9,9,22,-52,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MAGA,ETF Series Solutions Trust - Point Bridge GOP Stock Tracker ETF,31,9,23,0,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,VT,"Vanguard Group, Inc. - Vanguard Total World Stock ETF",25,9,24,4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,GME,GameStop,,9,25,-14,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,YOU,CLEAR Secure,9,8,26,-8,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,RR,Richtech Robotics,32,8,27,7,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,TP,Ticketplus,10,8,28,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,IP,International Paper,33,7,29,0,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,UI,Ubiquiti,14,7,30,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,SF,Stifel,12,7,31,4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ATR,AptarGroup,10,7,32,6,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,NBIS,Nebius Group,133,7,33,-15,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AMZN,Amazon,11,6,34,-10,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MRVL,Marvell Technology Group,69,6,35,2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,OR,Osisko Gold Royalties,8,6,36,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,VTI,Vanguard Total Stock Market ETF,14,6,37,-2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,APP,AppLovin,89,6,38,5,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,LOT,Lotus Technology,21,6,39,3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,TSM,TSMC,14,5,40,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AXP,American Express,8,5,41,4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ICE,Intercontinental Exchange,20,5,42,0,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,C,Citigroup,8,5,43,4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,CC,Chemours,89,5,44,-2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ET,Energy Transfer Partners,8,5,45,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,TLT,BlackRock Institutional Trust Company N.A. - BTC iShares 20+ Year Trea,10,5,46,-5,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,OG,Onion Global,18,5,47,3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,API,Agora.io,9,5,48,-9,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,SNDK,Sandisk,23,5,49,-25,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,BAC,Bank of America,8,4,50,3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ADBE,Adobe,100,4,51,-9,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,IBKR,Interactive Brokers,4,4,52,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,HBM,Hudbay Minerals,86,4,53,3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,JUST,Goldman Sachs ETF Trust - Goldman Sachs Just Us Large Cap Equity ETF,26,4,54,-1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,IWM,BlackRock Institutional Trust Company N.A. - BTC iShares Russell 2000,6,4,55,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,META,Meta Platforms (Facebook),10,4,56,-10,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MH,McGraw Hill,11,4,57,-14,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AAPL,Apple,9,3,58,-32,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MA,Mastercard,5,3,59,0,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ALL,Allstate,14,3,60,-6,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,NOW,ServiceNow,5,3,61,-4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,SO,Southern Company,11,3,62,-7,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ON,ON Semiconductor,7,3,63,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MRNA,Moderna,8,3,64,-20,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,CPA,Copa Holdings,11,3,65,2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,JD,Jingdong Mall,5,3,66,0,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,IG,Principal Exchange-Traded Funds - Principal Investment Grade Corporate,7,3,67,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,FEZ,SSgA Active Trust - SPDR EURO Stoxx 50 ETF,9,3,68,3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,FCF,First Commonwealth Financial Corp,8,3,69,2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,APLD,Applied Blockchain,3,3,70,-28,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,GOOGL,Alphabet (Google),5,3,71,-12,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,PR,Permian Resources,4,3,72,-11,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,WAY,Waystar,16,3,73,2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,GOOG,Alphabet (Google),8,2,74,-14,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,INTC,Intel,2,2,75,-12,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,SAP,SAP,3,2,76,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AVGO,Broadcom,73,2,77,-5,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,CME,CME Group,3,2,78,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,GIS,General Mills,3,2,79,2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,TTWO,Take 2 Interactive,5,2,80,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MS,Morgan Stanley,4,2,81,-7,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,ASML,ASML,8,2,82,0,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,WH,Wyndham Hotels & Resorts,46,2,83,-4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,XP,XP Inc.,4,2,84,2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,VC,Visteon,4,2,85,-5,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,LULU,lululemon athletica,6,2,86,-3,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,IQ,iQIYI,9,2,87,-10,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,LNG,Cheniere Energy,2,2,88,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,UBER,Uber,5,2,89,-1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,OI,O-I Glass,4,2,90,-1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,BB,BlackBerry,4,2,91,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,BJ,BJ's Wholesale Club,6,2,92,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AVDV,American Century ETF Trust - Avantis International Small Cap Value ETF,6,2,93,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,GLD,SSgA SPDR Gold Shares,5,2,94,-4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,AVUV,American Century ETF Trust - Avantis U.S. Small Cap Value ETF,6,2,95,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,SPDW,SSgA Active Trust - SPDR Portfolio Developed World ex-US ETF,5,2,96,2,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,MSTR,MicroStrategy,4,2,97,-1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,CIA,Citizens Inc,64,2,98,1,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,HOOD,Robinhood,6,2,99,-4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
+2026-10-10T23:41:37+02:00,FOR,Forestar Group,2,2,100,-4,https://feargreedmeter.com/top-100-most-popular-meme-stocks-today
